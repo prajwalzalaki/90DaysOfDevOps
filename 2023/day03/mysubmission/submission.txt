@@ -1,0 +1,86 @@
+Day 3 Task
+
+What is the Linux command to
+
+1. To view what's written in a file :
+
+cat filename
+
+2.To change the access permissions of files :
+
+chmod
+
+3.To check which commands you have run till now :
+
+history
+
+4.To remove a directory/ Folder :
+
+rm -r directory/folder
+
+5.To create a fruits.txt file and view the content :
+
+touch fruits.txt
+
+cat fruits.txt
+
+6.Add content in fruits.txt (One in each line) - Apple, Mango, Banana, Cherry, Kiwi, Orange, Guava :
+
+cat >> fruits.txt
+
+Apple
+
+Mango
+
+Banana
+
+Cherry
+
+Kiwi
+
+Orange
+
+Guava
+
+ctrl + d
+
+7.To Show only the top three fruits from the file :
+
+head -3 fruits.txt
+
+8.To Show only the bottom three fruits from the file :
+
+tail -3 fruits.txt
+
+9.To create another file Colors.txt and to view the content :
+
+touch Colors.txt
+
+cat Colors.txt
+
+9.Add content in Colors.txt (One in each line) - Red, Pink, White, Black, Blue, Orange, Purple, Grey :
+
+cat >> Colors.txt
+
+Red
+
+Pink
+
+White
+
+Black
+
+Blue
+
+Orange
+
+Purple
+
+Grey
+
+ctrl + d
+
+10.To find the difference between fruits.txt and Colors.txt files:
+
+diff fruits.txt Colors.txt
+
