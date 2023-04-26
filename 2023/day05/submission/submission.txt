@@ -1,0 +1,92 @@
+Day5 of 90DaysOfDevOps
+
+1. Write a bash script createDirectories.sh that when the script is executed with three given arguments (one is directory name and second is start number of directories and third is the end number of directories ) it creates specified number of directories with a dynamic directory name.
+
+#!/bin/bash
+
+# Check if three arguments are passed
+
+if [ "$#" -ne 3 ]; then
+            echo "Usage: $0 directory_name start_num end_num"
+                exit 1
+fi
+
+# Extract the arguments
+
+dir_name=$1
+start_num=$2
+end_num=$3
+
+# Loop through and create directories
+
+for (( i=$start_num; i<=$end_num; i++ ));
+do
+mkdir -p "${dir_name}${i}"
+done
+
+echo "Directories created successfully!"
+
+2. Create a Script to backup all your work done till now.
+
+#!/bin/bash
+
+src_dir=/home/ubuntu/scripts
+tgt_dir=/home/ubuntu/backups
+
+curr_time=$(date "+%Y-%m-%d-%H-%M-%S")
+backup_file=$tgt_dir/$curr_time.tgz
+
+echo "Taken backup on $curr_time"
+
+tar -czvf $backup_file --absolute-names $src_dir
+
+echo "Backup Completed"
+
+3.  Cron and Crontab, to automate the backup Script
+
+Cron is a time-based job scheduler in Linux and other Unix-like operating systems. It allows users to schedule tasks (also known as "jobs") to run automatically at specific times or intervals. These tasks can include things like running scripts, updating databases, or performing system maintenance.
+
+To schedule a task in Cron, you need to create a "crontab" (short for "cron table"), which is essentially a list of instructions that tells Cron what tasks to run and when to run them.
+
+Here's an example of how to create a basic crontab entry:
+
+* * * * * /path/to/command
+
+Let's break this down:
+
+The five asterisks at the beginning represent the schedule for the task. In this case, they indicate that the task should run every minute, every hour, every day of the month, every month, and every day of the week.
+
+/path/to/command is the path to the command or script that you want to run.
+
+In summary, Cron is a tool that allows you to automate tasks on a Linux or Unix-like system by creating crontab entries that specify when and how often the tasks should be executed.
+
+4. Read about User Management
+
+User management in Linux involves creating, modifying, and deleting user accounts, as well as managing their privileges and access to resources.
+
+Here are some key aspects of user management in Linux:
+
+User accounts: In Linux, each user has a unique user ID (UID) and a username. User accounts are managed using commands like adduser, useradd, usermod, and userdel. These commands are used to create new user accounts, modify existing accounts, and delete user accounts.
+
+Passwords: Each user account is protected by a password. Passwords can be managed using the passwd command. This command allows users to change their own passwords and administrators to change the passwords of other users.
+
+Groups: In Linux, users can be grouped together based on their roles or responsibilities. Groups are managed using commands like addgroup, groupadd, groupmod, and groupdel. These commands are used to create new groups, modify existing groups, and delete groups.
+
+Permissions: Linux uses a permission system to control access to files and directories. Each file and directory has an owner and a set of permissions that determine which users or groups can access the file or directory. The chown, chmod, and chgrp commands are used to manage file and directory permissions.
+
+Sudo: The sudo command allows users to execute commands with elevated privileges. Users who are authorized to use sudo are referred to as sudoers. Sudoers can be managed using the /etc/sudoers file or the visudo command.
+
+Overall, user management in Linux is an essential aspect of system administration. Proper user management ensures that users have access to the resources they need while maintaining the security and integrity of the system.
+
+5. Create 2 users and just display their Usernames
+
+sudo useradd -m user1
+sudo useradd -m user2
+
+Set the password using the below command
+sudo passwd user1
+sudo passwd user2
+
+You can find the users under the "/etc/passwd" folder
+
+cat /etc/passwd
