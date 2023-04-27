@@ -1,0 +1,66 @@
+Day 6 of 90DaysOfDevOps
+
+File Permissions
+
+In Linux, file permissions determine who can access a file, and what they can do with it.
+
+There are three levels of permissions: read (r), write (w), and execute (x), which correspond to different actions that can be taken with a file.
+
+There are also three categories of users: the owner of the file (represented by "u" for "user"), users in the file's group (represented by "g" for "group"), and all other users (represented by "o" for "others").
+
+The command "ls -ltr" is used to list the files in a directory in long format and sort them by modification time in reverse order (oldest files first).
+
+The output will display the following columns:
+
+File permissions
+
+Number of hard links
+
+Owner of the file
+
+Group owner of the file
+
+File size in bytes
+
+Date and time of last modification
+
+File name
+
+Here is an example output of the "ls -ltr" command:
+
+
+
+In this example, the files and directories are sorted by the date and time of last modification in ascending order, so the oldest file "my-new-file.txt" is listed first. The permissions, file size, and file name are also displayed, along with the owner and group owner of each file.
+
+The first character "-" indicates that this is a regular file (as opposed to a directory, which would be indicated by "d").
+
+The next three characters "rw-" indicate that the owner of the file has read and write permissions, but not execute permissions.
+
+The following three characters "rw-" indicate that users in the file has read and write permissions, but not execute permissions.
+
+The final three characters "r--" indicate that all other users have read permissions, but not write or execute permissions.
+
+chmod
+
+"chmod" is a command in Linux and Unix-based operating systems used to change the permissions of files or directories. The name "chmod" stands for "change mode".
+
+The command "chmod" uses a three-digit code to set the file permissions. The three digits correspond to the three categories of users: owner, group, and others. Each digit represents a sum of the permission values: 4 for read, 2 for write, and 1 for execute. The sum of these values is used to set the permission value for that category.
+
+For example, to give the owner of a file read and write permission, and group and others only read permission, you would use the command:
+
+chmod 644 filename
+
+Here, the first digit (6) represents the owner's permission, which is read and write (4+2=6). The second digit (4) represents the group's permission, which is read only (4). The third digit (4) represents others' permission, which is also read only (4).
+
+
+Access Control List (ACL)
+
+Access Control Lists (ACLs) are a way to provide more fine-grained control over file and directory permissions in Linux and Unix-based operating systems. ACLs allow you to define access rules for specific users or groups beyond the standard owner, group, and other permissions.
+
+getfacl
+
+"getfacl" is a command in Linux and Unix-based operating systems that is used to view the Access Control Lists (ACLs) for files and directories. The output of the "getfacl" command shows the existing ACL rules for a file or directory, including any rules that have been added beyond the standard owner, group, and other permissions.
+
+setfacl
+
+"setfacl" is a command in Linux and Unix-based operating systems that is used to modify the Access Control Lists (ACLs) for files and directories. The "setfacl" command allows you to add or remove specific ACL rules for individual users or groups, beyond the standard owner, group, and other permissions.
