@@ -1,0 +1,133 @@
+Day 7 of 90DaysOfDevOps
+
+Package Manager
+
+In Linux, a package manager is a tool that helps users to install, manage, and remove software packages on their system. Package managers automate the process of downloading, installing, and configuring software packages, making it easier for users to manage their system software.
+
+There are several package managers available in Linux, including APT (Advanced Package Tool) used by Debian and Ubuntu, YUM (Yellowdog Updater, Modified) used by Fedora and CentOS, and Pacman used by Arch Linux.
+
+What is Package?
+
+A package, on the other hand, is a compressed archive file that contains all the files needed to install and run a software application. A package typically includes binary files, configuration files, documentation, and any other files required by the application. Packages are typically distributed in a standardized format, such as .deb or .rpm files, which can be installed using a package manager. When a package is installed, the package manager extracts the files and places them in the appropriate locations on the system, and then configures the system to use the application as needed.
+
+Types of Package Manager
+There are several types of package managers available on various operating systems. Here are some of the most common types of package managers:
+
+System-level package managers: These package managers are used to manage software packages at the system level, and they are typically used by the operating system itself. Examples include APT (Advanced Package Tool) used by Debian and Ubuntu, YUM (Yellowdog Updater, Modified) used by Fedora and CentOS, and Pacman used by Arch Linux.
+
+Language-specific package managers: These package managers are used to manage packages specific to a programming language. Examples include pip for Python, npm for Node.js, and composer for PHP.
+
+Application-level package managers: These package managers are used to manage packages specific to an application or a set of applications. Examples include Homebrew for macOS, Chocolatey for Windows, and Flatpak for Linux.
+
+Source-based package managers: These package managers compile software packages from source code instead of installing pre-compiled binaries. Examples include Gentoo's Portage and FreeBSD's Ports Collection.
+
+Each type of package manager has its own set of features, strengths, and weaknesses, and choosing the right one depends on the specific needs of the user or organization.
+
+Task 1 : Install docker and jenkins in your system from your terminal using package managers.
+Docker Installation
+
+
+sudo apt-get update
+
+This command will connect to the package repositories specified in your system's sources.list file and download information about the available packages, including their versions, dependencies, and security updates.
+
+sudo apt-get install docker.io
+
+This command will download the Docker package and all its dependencies, and then install them on your system.
+
+docker --version
+
+This command is used to check the version of the Docker Engine installed on your system.
+
+
+Jenkins Installation
+
+Before installing Jenkins, it is necessary to have Java installed on the system as a prerequisite.
+
+sudo apt install openjdk-11-jre
+
+This command will download and install the OpenJDK 11 runtime and its dependencies on your system.
+
+java -version
+
+This command is used to check the version of the java installed on your system.
+
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+
+This command is used to download the Jenkins GPG key and save it to a keyring file.
+
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+This command is used to add the Jenkins repository to your system's APT sources list.
+
+
+sudo apt-get update
+sudo apt-get install jenkins
+
+The first command, sudo apt-get update, updates the package lists from all configured repositories, including the newly added Jenkins repository.
+
+The second command, sudo apt-get install jenkins, installs the latest stable version of Jenkins from the Jenkins repository using the APT package manager.
+
+During the installation process, you will be prompted to confirm that you want to install Jenkins and its dependencies. You can confirm this by typing "Y" and pressing Enter.
+
+
+systemctl and systemd
+
+systemctl and systemd are both core components of modern Linux operating systems, and they are closely related to each other.
+
+systemd is a system and service manager that is responsible for controlling the startup and management of all processes on the system. It is designed to be more efficient and flexible than traditional System V init scripts, which were used in older Linux distributions. systemd is responsible for managing system daemons, mounting file systems, and running background services.
+
+systemctl is a command-line utility used for controlling the systemd system and service manager. It is used to start, stop, restart, enable, disable, and view the status of system services.
+
+systemctl allows system administrators to control the state of the system and its services with a unified command interface. It provides a consistent and standardized way of managing services across different Linux distributions that use systemd as the default init system.
+
+Some examples of using systemctl include:
+
+systemctl start <service>: Starts a system service.
+
+systemctl stop <service>: Stops a system service.
+
+systemctl restart <service>: Restarts a system service.
+
+systemctl enable <service>: Enables a system service to start automatically at boot.
+
+systemctl disable <service>: Disables a system service from starting automatically at boot.
+
+systemctl status <service>: Shows the status of a system service, including whether it is running or stopped.
+
+Overall, systemctl is a powerful and flexible tool that is essential for managing Linux system services using systemd.
+
+Task 2 : Check the status of docker service in your system
+
+To check the status of the Docker service in your system, you can use the systemctl command as follows:
+
+sudo systemctl status docker
+
+This will display the current status of the Docker service, including whether it is running or stopped, any errors that may have occurred, and other relevant information.
+
+
+Task 3 : Stop the service jenkins and post before and after screenshots
+
+To stop the Jenkins service, you can use the systemctl command as follows:
+
+sudo systemctl stop jenkins
+
+This will stop the Jenkins service immediately.
+
+
+Task 4 : systemctl vs service
+
+systemctl and service are both used for managing system services in Linux, but they differ in their capabilities and functionality.
+
+systemctl is a command-line tool used for controlling the systemd system and service manager. It provides more fine-grained control over system services than the service command, including the ability to start, stop, restart, reload, enable, disable, and view the status of system services.
+
+systemctl also provides features such as dependency management, which allows services to be started or stopped automatically based on their dependencies on other services or system resources. It also allows services to be started or stopped in parallel, which can improve system performance by reducing startup times.
+
+In contrast, service is a legacy command used for managing System V init scripts. It is still included in many Linux distributions for backward compatibility, but it is not as feature-rich or flexible as systemctl.
+
+service only provides basic functionality such as starting, stopping, restarting, and checking the status of services. It does not support features such as dependency management or parallel startup.
+
+Overall, systemctl is a more modern and powerful tool for managing system services in Linux, while service is a legacy command that is mainly used for compatibility with older init systems. If you are using a modern Linux distribution that uses systemd as the default init system, it is recommended to use systemctl for managing system services.
