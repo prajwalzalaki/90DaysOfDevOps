@@ -1,0 +1,102 @@
+Day 8 of 90DaysOfDevOps
+
+What is GIT?
+Git is a free and open-source distributed version control system designed to track changes in source code during software development. It was created by Linus Torvalds in 2005 as a replacement for the proprietary BitKeeper tool that he had been using to manage the development of the Linux kernel.
+
+Git allows multiple developers to work on the same codebase simultaneously and independently, without overwriting each other's changes. It also provides a mechanism for storing and retrieving different versions of a codebase, allowing developers to roll back to previous versions if necessary. Git achieves these goals by keeping a complete history of all changes made to a codebase and allowing developers to create and merge branches of that history.
+
+Git is widely used by software developers for managing source code, but it can also be used to track changes in other types of files, such as documentation and configuration files. It has become a fundamental tool in modern software development, and many popular services such as GitHub, GitLab, and Bitbucket provide web-based interfaces for hosting and collaborating on Git repositories.
+
+What is GitHub?
+GitHub is a web-based platform that provides Git-based version control and collaboration tools for software development teams. It allows developers to store and share their code, collaborate with others, and track and manage changes to their codebase.
+
+As a DevOps engineer, you can use GitHub to manage and automate the software development lifecycle, from source code management to deployment.
+
+What is Version Control? How many types of version controls we have?
+Version control is a software management system that allows developers to track changes to their source code over time. It provides a way to store and manage different versions of a codebase, allowing developers to collaborate on a project and easily manage changes.
+
+There are two main types of version control systems: centralized and distributed.
+
+Centralized Version Control System (CVCS): In a CVCS, a central server stores the entire history of the codebase, and developers check out files from this central repository to make changes. Examples of CVCSs include Subversion (SVN) and Microsoft Team Foundation Server (TFS).
+
+Distributed Version Control System (DVCS): In a DVCS, each developer has their own local repository, which contains a complete copy of the codebase history. Developers can make changes to their local copy of the codebase and then push those changes to a remote repository. Examples of DVCSs include Git, Mercurial, and Bazaar.
+
+Why we use distributed version control over centralized version control?
+There are several reasons why developers prefer distributed version control systems (DVCS) like Git over centralized version control systems (CVCS) like SVN. Here are some of the key advantages of DVCS:
+
+Offline access: With DVCS, developers can work offline and have a complete copy of the repository on their local machine. This means they can commit changes and work on the codebase even when they don't have internet access. In contrast, with CVCS, developers need to be connected to the central repository to commit changes.
+
+Branching and merging: DVCS makes branching and merging easier and more flexible than CVCS. Developers can create and manage branches locally, without affecting the central repository, and merge changes back into the main codebase when they're ready. This allows for more experimentation and flexibility in the development process.
+
+Speed and performance: DVCS can be faster and more performant than CVCS, especially when working with large codebases or making frequent commits. This is because DVCS doesn't require constant communication with a central server.
+
+Collaboration: DVCS makes collaboration easier and more flexible than CVCS. Developers can share code and collaborate on branches without having to worry about conflicts or changes made by other developers.
+
+Security: DVCS provides better security than CVCS since each developer has a complete copy of the repository. This means that if the central server is compromised, the entire codebase is not at risk.
+
+In summary, while both centralized and distributed version control systems have their advantages, many developers prefer DVCS because of its offline access, flexible branching and merging, speed and performance, collaboration features, and security.
+
+Task 1: Install Git
+
+To install git on your computer, you can download it from the official website at https://git-scm.com/downloads
+
+Task 2: Create a free account on GitHub
+
+To create an account on GitHub, use the below link.
+
+https://tinyurl.com/23jx265k
+
+Exercises
+Exercise 1: Create a new repository on GitHub and clone it to your local machine
+
+Go to GitHub and log in to your account.
+
+Click on the "+" icon in the top right corner of the page and select "New repository" from the dropdown menu.
+
+Enter a name for your repository, a brief description, and select whether you want the repository to be public or private. You can also add a README file and choose a license if you wish.
+
+Click on the "Create repository" button to create the new repository.
+
+
+
+Once the repository is created, you will be taken to the repository page on GitHub. Click on the green "Code" button to reveal the HTTPS URL of the repository.
+
+
+
+Open a terminal window on your local machine and navigate to the directory where you want to clone the repository.
+
+Type the following command to clone the repository to your local machine:
+
+ git clone <HTTPS URL of your repository>
+
+
+Exercise 2: Make some changes to a file in the repository and commit them to the repository using Git
+
+Open a terminal window on your local machine and navigate to the local copy of the repository using the cd command. For example:
+
+cd /path/to/local/repository
+Use a text editor to make changes to a file in the repository. For example, you can open the file using the vim editor:
+
+vim file.txt
+
+Save the changes and exit the editor.
+
+Use the git status command to see which files have been modified:
+
+git status
+
+Use the git add command to stage the changes to the file for the next commit:
+
+git add file.txt
+
+Use the git commit command to commit the changes with a commit message:
+
+git commit -m "Updated file.txt with new content"
+
+Exercise 3: Push the changes back to the repository on GitHub
+
+Use the git push command to push the changes to the remote repository on GitHub. For example:
+
+git push -u -f origin
+
+Enter your GitHub username and for password generate the token from GitHub and paste the token. To generate the token follow this link https://tinyurl.com/mpjfkbvj.
